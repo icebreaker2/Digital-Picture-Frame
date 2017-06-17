@@ -1,3 +1,9 @@
+# Injellj
+.idea/
+
+# Cmake
+cmake-build-debug/
+
 # Object files
 *.o
 *.ko
