@@ -11,7 +11,11 @@ bool playMovVideo(const char *pathToFile) {
 	libvlc_media_t *m;
 
 	/* Load the VLC engine */
-	inst = libvlc_new(0, NULL);
+	//preparation of the vlc command
+	const char * const vlc_args[] = {
+			"-V", "X11"
+			};
+	inst = libvlc_new(sizeof(vlc_args) / sizeof(vlc_args[0]), vlc_args);
 
 	/* Create a new item */
 	//m = libvlc_media_new_location(inst, "http://mycool.movie.com/test.mov");
@@ -19,14 +23,12 @@ bool playMovVideo(const char *pathToFile) {
 
 	/* Create a media player playing environement */
 	mp = libvlc_media_player_new_from_media(m);
-
-	/* No need to keep the media now */
-	libvlc_media_release(m);
+	libvlc_set_fullscreen(mp, 1);
 
 	/* play the media_player */
 	libvlc_media_player_play(mp);
 
-	sleep(1); /* Let it play a bit */
+	sleep(3); /* Let it play a bit */
 
 	/* Stop playing */
 	libvlc_media_player_stop(mp);

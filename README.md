@@ -19,7 +19,7 @@ cd Digital-Picture-Frame
 
 Now run start the `CMakeLists.txt` or compile yourself (familiar to):
 ```bash
- gcc -Wall -Iinclude/modules src/modules/MovPlayer.c src/main.c -o main -lvlc
+gcc -Wall -Iinclude/modules src/modules/MovPlayer.c src/main.c -o main -lvlc
 ```
 
 ## Developer Notes
