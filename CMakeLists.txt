@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.7)
-project(Digital_Picture_Frame)
+project(Digital_Picture_Frame.sh)
 
 set(CMAKE_C_STANDARD 99)
 
@@ -36,9 +36,9 @@ set(SOURCE_FILES
 		test/modules/VLCPlayerTest.c
 		)
 
-add_executable(Digital_Picture_Frame ${SOURCE_FILES})
+add_executable(Digital_Picture_Frame.sh ${SOURCE_FILES})
 
-target_link_libraries(Digital_Picture_Frame
+target_link_libraries(Digital_Picture_Frame.sh
 		${LIBVLC_LIBRARY}
 		#${LIBVLCCORE_LIBRARY}
 		)

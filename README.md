@@ -8,8 +8,10 @@ Make sure you have the following components installed
 
 * [CMake](https://cmake.org/download/)
 * A [c-Compiler](https://wiki.ubuntuusers.de/GCC/).
-* [dev](http://www.videolan.org/vlc/index.de.html) package
+* [vlc](http://www.videolan.org/vlc/index.de.html) package
 * [libvlc-dev](https://wiki.videolan.org/LibVLC_Tutorial/) package
+
+You can use the [dependecy script](digitalPictureFramePackageDependencies.sh) to install all required packages on Linux but you must have root permissions.
 
 ### Software install
 ```bash
@@ -19,8 +21,13 @@ cd Digital-Picture-Frame
 
 Now run start the `CMakeLists.txt` or compile yourself (familiar to):
 ```bash
-gcc -std=c99 -Wall -Iinclude/modules src/modules/VLCPlayer.c src/modules/FileIterator.c src/main.c -o main -lvlc 
+gcc -std=c99 -Wall -Iinclude/modules src/modules/VLCPlayer.c src/modules/FileIterator.c src/main.c -o digitalPictureFrame -lvlc 
 ```
+and run
+```bash
+./digitalPictureFrame
+```
+or use the [Start script](Digital_Picture_Frame.sh).
 
 ## Developer Notes
 To be continued...
