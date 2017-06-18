@@ -27,13 +27,13 @@ find_library(LIBVLCCORE_LIBRARY NAMES vlccore libvlccore
 find_library(LIBVLCCORE_LIBRARY NAMES vlccore libvlccore)
 
 set(SOURCE_FILES
-		${MODULES_INCLUDE}/MovPlayer.h
+		${MODULES_INCLUDE}/VLCPlayer.h
 		${MODULES_INCLUDE}/FileIterator.h
-		${MODULES_SRC}/MovPlayer.c
+		${MODULES_SRC}/VLCPlayer.c
 		${MODULES_SRC}/FileIterator.c
 		src/main.c
 
-		test/modules/MovPlayerTest.c
+		test/modules/VLCPlayerTest.c
 		)
 
 add_executable(Digital_Picture_Frame ${SOURCE_FILES})

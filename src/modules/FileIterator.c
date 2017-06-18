@@ -3,7 +3,7 @@
 const char *concatenateString(const char *path, char name[256]);
 
 /* This is just a sample code, modify it to meet your need */
-FILE **getAllFilesFromDir(const char *dirPath) {
+const char **getAllFilesFromDir(const char *dirPath, uint32_t** length) {
 	DIR *FD;
 	struct dirent *in_file;
 	FILE *entry_file;
@@ -14,9 +14,9 @@ FILE **getAllFilesFromDir(const char *dirPath) {
 		fprintf(stderr, "Error : Failed to open input directory - %s\n", strerror(errno));
 		return NULL;
 	}
-	FILE **fileList = calloc(sizeof(FILE), 10000); // TODO fix to dynamic length
+	const char **fileList = calloc(sizeof(const char), 10000); // TODO fix to dynamic length
 
-	int iteratorCounter = 0;
+	uint32_t iteratorCounter = 0;
 	while ((in_file = readdir(FD))) {
 		/* On linux/Unix we don't want current and parent directories
 		 * On windows machine too, thanks Greg Hewgill
@@ -36,9 +36,11 @@ FILE **getAllFilesFromDir(const char *dirPath) {
 
 		/* Use fprintf or fwrite to write some stuff into common_file*/
 		printf("File read %i: %s\n", iteratorCounter, in_file->d_name);
-		fileList[iteratorCounter] = entry_file;
+		fileList[iteratorCounter] = fullFilePath;
 		iteratorCounter++;
 	}
+
+	*length = &iteratorCounter;
 
 	return fileList;
 }
