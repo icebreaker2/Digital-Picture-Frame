@@ -35,7 +35,7 @@ const char **getAllFilesFromDir(const char *dirPath, uint32_t** length) {
 		}
 
 		/* Use fprintf or fwrite to write some stuff into common_file*/
-		printf("File read %i: %s\n", iteratorCounter, in_file->d_name);
+		//printf("File read %i: %s\n", iteratorCounter, in_file->d_name);
 		fileList[iteratorCounter] = fullFilePath;
 		iteratorCounter++;
 	}
@@ -47,10 +47,11 @@ const char **getAllFilesFromDir(const char *dirPath, uint32_t** length) {
 
 const char *concatenateString(const char *path, char name[256]) {
 	char *tmp = calloc(sizeof(const char), strlen(path) + 256);
-	for (int i = 0; i < strlen(path); i++) {
+	int i = 0;
+	for (i; i < strlen(path); i++) {
 		tmp[i] = path[i];
 	}
-	for (int i = 0; i < 256; i++) {
+	for (i = 0; i < 256; i++) {
 		tmp[i + strlen(path)] = name[i];
 	}
 	return tmp;

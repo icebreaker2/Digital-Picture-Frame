@@ -13,6 +13,6 @@
  */
 bool playMovVideo(const char *pathToFile);
 
-bool playMultpleMediaFiles(const char **fileList, uint32_t fileListLength);
+bool playMultipleMediaFiles(const char **fileList, uint32_t fileListLength);
 
 #endif //DIGITAL_PICTURE_FRAME_MOVPLAYER_H
