@@ -1,4 +1,4 @@
-#include "MovPlayer.h"
+#include "VLCPlayer.h"
 
 /**
  * Plays a *.mov video given the path to the file.
@@ -38,7 +38,7 @@ bool playMovVideo(const char *pathToFile) {
 
 	libvlc_media_list_player_play(media_list_player);
 
-	sleep(100); /* Let it play a bit */
+	sleep(10000); /* Let it play a bit */
 
 	/* Stop playing */
 	libvlc_media_list_player_stop(media_list_player);
@@ -50,3 +50,4 @@ bool playMovVideo(const char *pathToFile) {
 
 	return false;
 }
+

@@ -16,7 +16,6 @@ find_library(LIBVLC_LIBRARY NAMES vlc libvlc
 		c:/msys/local/lib
 		)
 find_library(LIBVLC_LIBRARY NAMES vlc libvlc)
-MESSAGE("${LIBVLC_LIBRARY}")
 
 find_library(LIBVLCCORE_LIBRARY NAMES vlccore libvlccore
 		HINTS "$ENV{LIBVLC_LIBRARY_PATH}" ${PC_LIBVLC_LIBDIR} ${PC_LIBVLC_LIBRARY_DIRS}
@@ -29,13 +28,17 @@ find_library(LIBVLCCORE_LIBRARY NAMES vlccore libvlccore)
 
 set(SOURCE_FILES
 		${MODULES_INCLUDE}/MovPlayer.h
-
+		${MODULES_INCLUDE}/FileIterator.h
 		${MODULES_SRC}/MovPlayer.c
-
+		${MODULES_SRC}/FileIterator.c
 		src/main.c
 
 		test/modules/MovPlayerTest.c
-		test/TestStarter.c)
+		)
+
 add_executable(Digital_Picture_Frame ${SOURCE_FILES})
 
-target_link_libraries(Digital_Picture_Frame ${LIBVLC_LIBRARY})
+target_link_libraries(Digital_Picture_Frame
+		${LIBVLC_LIBRARY}
+		#${LIBVLCCORE_LIBRARY}
+		)
