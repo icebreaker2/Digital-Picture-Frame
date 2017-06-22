@@ -40,5 +40,5 @@ It may work better with the new generation of the raspberry pi but not for sure.
 
 You can register the [Start script](Digital_Picture_Frame.sh) within the auto start script - choose your prefered way. I have excluded videos for the raspberry pi using the raspberry pi just for pictures to display.
 
-[](usageExmaple.png)
+![](usageExmaple.png)
 
