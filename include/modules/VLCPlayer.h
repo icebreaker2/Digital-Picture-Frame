@@ -7,12 +7,10 @@
 #include <unistd.h>
 
 /**
- * Plays a *.mov video given the path to the file.
- * @param pathToFile Is the path to the *.mov file including the files name.
- * @return If the video fails false is returned otherwise true.
+ * Plays every known media file with vlc in full screen. Once the method is called it screens the media forever.
+ * @param fileList Is a list of file names including their paths. The names and paths are used by vlc to play them.
+ * @param fileListLength Is the length of the list.
  */
-bool playMovVideo(const char *pathToFile);
-
-bool playMultipleMediaFiles(const char **fileList, uint32_t fileListLength);
+void playMultipleMediaFiles(const char **fileList, uint32_t fileListLength);
 
 #endif //DIGITAL_PICTURE_FRAME_MOVPLAYER_H

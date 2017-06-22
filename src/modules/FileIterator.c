@@ -1,9 +1,20 @@
 #include "FileIterator.h"
 
+/**
+ * Concatenates two strings. In this example: The filename is added to the path. This function is private.
+ * @param path Is the path where to look for media files.
+ * @param name Is a filename to add to the path.
+ * @return The path including the filename as a new string.
+ */
 const char *concatenateString(const char *path, char name[256]);
 
-/* This is just a sample code, modify it to meet your need */
-const char **getAllFilesFromDir(const char *dirPath, uint32_t** length) {
+/**
+ *
+ * @param dirPath Is the path to the media dir where to fet the file names from.
+ * @param length Is a referenced pointer to store the amount of files at.
+ * @return Is a list of file names including their paths.
+ */
+const char **getAllFilePathFromDir(const char *dirPath, uint32_t **length) {
 	DIR *FD;
 	struct dirent *in_file;
 	FILE *entry_file;
@@ -26,7 +37,6 @@ const char **getAllFilesFromDir(const char *dirPath, uint32_t** length) {
 		if (!strcmp(in_file->d_name, ".."))
 			continue;
 		/* Open directory entry file for common operation */
-		/* TODO : change permissions to meet your need! */
 		const char *fullFilePath = concatenateString(dirPath, in_file->d_name);
 		entry_file = fopen(fullFilePath, "rw");
 		if (entry_file == NULL) {
@@ -34,8 +44,6 @@ const char **getAllFilesFromDir(const char *dirPath, uint32_t** length) {
 			return NULL;
 		}
 
-		/* Use fprintf or fwrite to write some stuff into common_file*/
-		//printf("File read %i: %s\n", iteratorCounter, in_file->d_name);
 		fileList[iteratorCounter] = fullFilePath;
 		iteratorCounter++;
 	}
@@ -45,6 +53,12 @@ const char **getAllFilesFromDir(const char *dirPath, uint32_t** length) {
 	return fileList;
 }
 
+/**
+ * Concatenates two strings. In this example: The filename is added to the path. This function is private.
+ * @param path Is the path where to look for media files.
+ * @param name Is a filename to add to the path.
+ * @return The path including the filename as a new string.
+ */
 const char *concatenateString(const char *path, char name[256]) {
 	char *tmp = calloc(sizeof(const char), strlen(path) + 256);
 	int i = 0;
